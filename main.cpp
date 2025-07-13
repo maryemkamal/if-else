@@ -1,99 +1,191 @@
 #include <iostream>
 
 using namespace std;
-
-
-//problem 1
+// 1-Add
 /*
+int add(int a , int b){
+ return a+b;
+}
 int main()
-{   int num1 , num2 ;
+{
+    int n1,n2 ;
 
-    cout << "plz enter two integer :" << endl;
-    cin>> num1 >>num2 ;
+    cout << "enter two number :" << endl;
+    cin>>n1>>n2;
 
-    if(num1 == num2 )
-        cout<<"equal"<<endl;
-    else
-        cout<<"not equal"<<endl;
+    int result = add(n1,n2);
+    cout<<"sum ="<<result;
     return 0;
 }
 */
 
-//problem 2
+// 2- Two numbers
 /*
-int main()
-{
-    int num ;
-    cout << "enter number to check is odd or even :" << endl;
-    cin >>num ;
-    if(num % 2==0)
-        cout<<"even"<<endl;
-    else
-        cout<<"odd"<<endl;
-    return 0;
-}
-*/
+int main() {
+    double A, B;
+    cin >> A >> B;
 
-//problem 3
-/*
-int main()
-{
-    int num ;
-    cout << "enter number to check is positive or negative or equal zero  :" << endl;
-    cin >>num ;
-    if(num > 0)
-        cout<<"positive"<<endl;
-    else if(num < 0)
-        cout<<"negative"<<endl;
-    else
-        cout<<"equal zero"<<endl;
+    double result = A / B;
+
+    cout << floor(result) << endl;
+    cout << ceil(result) << endl;
+    cout << round(result) << endl;
 
     return 0;
 }
 */
 
-//problem 4
+//3- Swap
 /*
-int main()
-{
-    int day ;
-    cout << "enter day number  :" << endl;
-    cin >>day;
+void swapValues(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
 
-    if(day == 1)
-        cout<<"sunday"<<endl;
-    else if(day == 2)
-        cout<<"monday"<<endl;
-    else if(day == 3)
-        cout<<"tuesday"<<endl;
-    else if(day == 4)
-        cout<<"wednesday"<<endl;
-    else if(day == 5)
-        cout<<"thursday"<<endl;
-    else if(day == 6)
-        cout<<"friday"<<endl;
-    else if(day == 7)
-        cout<<"saturday"<<endl;
+int main() {
+    int x, y;
+    cin >> x >> y;
 
-    else
-        cout<<"invalid day number , plz enter number 1:7"<<endl;
-       return 0;
+    swapValues(x, y);
+
+    cout << x << " " << y << endl;
+
+    return 0;
 }
 
 */
-//problem 5
+
+// 4- GCD
 /*
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int A, B;
+    cin >> A >> B;
+    cout << gcd(A, B) << endl;
+    return 0;
+}
+*/
+// 5-Wonderful numbers
+
+/*
+bool isodd(int a){
+ if(a%2==1)
+    return true;
+ else
+    return false;
+}
 int main()
 {
-    int num1 , num2 ;
+    int num;
 
-    cout << "plz enter two integer :" << endl;
-    cin>> num1 >>num2 ;
+    cout << "enter number :" << endl;
+    cin>>num;
 
-    if(num1 > num2)
-        cout<<"the max number is "<<num1;
+    if(isodd(num))
+       cout<<"Yes";
     else
-        cout<<"the max number is "<<num2;
+       cout<<"No";
+    return 0;
+}
+*/
+
+// 6-Prime numbers
+
+/*
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    cout << "Prime numbers are:\n";
+    for (int i = 2; i <= n; i++) {
+        if (isPrime(i)) {
+            cout << i << " ";
+        }
+    }
+
+    cout << endl;
+    return 0;
+}
+*/
+// 7- lucky numbers
+/*
+bool isLucky(int num) {
+    while (num > 0) {
+        int digit = num % 10; //10
+        if (digit != 4 && digit != 7)
+            return false;
+        num /= 10;
+    }
+    return true;
+}
+
+int main() {
+    int A, B;
+    cin >> A >> B;
+
+    bool found = false;
+
+    for (int i = A; i <= B; i++) {
+        if (isLucky(i)) {
+            cout << i << " ";
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << -1;
+    }
+
+    return 0;
+}
+*/
+// 9-Equation
+
+/*
+int power(int x, int e) {
+    int result = 1;
+    for (int i = 0; i < e; i++) {
+        result *= x;
+    }
+    return result;
+}
+
+int calculateSeries(int x, int n) {
+    int sum = 0;
+    for (int i = 0; i <= n; i += 2) {
+        if (i == 0)
+            sum += (power(x, 0) - 1);
+        else
+            sum += power(x, i);
+    }
+    return sum;
+}
+
+int main() {
+    int X, N;
+    cin >> X >> N;
+
+    int result = calculateSeries(X, N);
+    cout << result << endl;
+
     return 0;
 }
 */
